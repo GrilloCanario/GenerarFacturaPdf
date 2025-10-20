@@ -1,0 +1,39 @@
+// .devcontainer/devcontainer.json
+{
+    // Nombre del entorno de desarrollo
+    "name": "factura-pdf",
+
+    // Apunta a tu archivo docker-compose.yml y especifica el servicio principal
+    "build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+
+    // Espacio de trabajo donde se montará tu código fuente
+    "workspaceFolder": "/workspace",
+
+    // Mapeamos la carpeta de desarrollo a la carpeta workspace del contenedor.
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+
+    // Mapeo de puertos para el servidor de desarrollo de PHP
+    "forwardPorts": [8080],
+
+    // Comando a ejecutar después de que se cree el contenedor
+    "postStartCommand": "php -S 0.0.0.0:8080 -t public/",
+
+    // Añade extensiones de VS Code recomendadas para este entorno
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "xdebug.php-debug",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+
+    // Instala Git dentro del contenedor
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    }
+}
