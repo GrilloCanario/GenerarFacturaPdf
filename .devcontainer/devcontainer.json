@@ -16,10 +16,10 @@
     "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
 
     // Mapeo de puertos para el servidor de desarrollo de PHP
-    "forwardPorts": [8080],
+    "forwardPorts": [8086],
 
     // Comando a ejecutar después de que se cree el contenedor
-    "postStartCommand": "php -S 0.0.0.0:8080 -t public/",
+    "postStartCommand": "php -S 0.0.0.0:8086 -t public/",
 
     // Añade extensiones de VS Code recomendadas para este entorno
     "customizations": {
